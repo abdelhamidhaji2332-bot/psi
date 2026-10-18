@@ -1,0 +1,54 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-gradient: radial-gradient(circle at 50% 20%, #f0f7ff 0%, #f8faff 45%, #f4f6fa 100%);
+  }
+  .dark {
+    --bg-gradient: radial-gradient(circle at 50% 20%, #0d1527 0%, #080c16 45%, #05070d 100%);
+  }
+  body {
+    background: var(--bg-gradient);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer utilities {
+  .math-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.18;
+    background-image: url("data:image/svg+xml,%3Csvg width='1200' height='700' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='160' y='140' font-family='serif' font-size='22' font-style='italic' fill='%233b82f6'%3EV = %E2%88%AB f(x) dt dx%3C/text%3E%3Ctext x='720' y='160' font-family='serif' font-size='24' font-style='italic' fill='%236366f1'%3E%E2%88%87%C2%B7B = 0%3C/text%3E%3Ctext x='650' y='120' font-family='serif' font-size='22' font-style='italic' fill='%230284c7'%3EV%CC%85 = -F%CC%85%C2%B7b%CC%85 - mt%3C/text%3E%3Ctext x='110' y='280' font-family='serif' font-size='20' font-style='italic' fill='%2364748b'%3Emc%C2%B2 + 2%CF%83 x(t)%3C/text%3E%3Ctext x='130' y='360' font-family='serif' font-size='20' font-style='italic' fill='%233b82f6'%3E%E2%88%AB f(x)(dz+zx)%C2%B3 dx%3C/text%3E%3Ctext x='780' y='280' font-family='serif' font-size='18' font-style='italic' fill='%2364748b'%3EM = [ x%E2%82%81%E2%82%81 dx%E2%82%81%E2%82%81 ... ]%3C/text%3E%3Ctext x='60' y='460' font-family='serif' font-size='22' font-style='italic' fill='%230284c7'%3EE = %7B 1/%CE%BD ... %7D%3C/text%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+  }
+  .dark .math-bg { opacity: 0.12; filter: invert(1); }
+  .zellige-left, .zellige-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 320px;
+    pointer-events: none;
+    opacity: 0.12;
+    z-index: 0;
+    background-repeat: repeat-y;
+    background-size: 260px auto;
+  }
+  .zellige-left {
+    left: -40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%230284c7' stroke-width='1.5'%3E%3Cpolygon points='100,10 125,75 190,100 125,125 100,190 75,125 10,100 75,75'/%3E%3Cpolygon points='100,35 145,100 100,165 55,100'/%3E%3Ccircle cx='100' cy='100' r='55'/%3E%3Cpath d='M100,0 L200,100 L100,200 L0,100 Z'/%3E%3Cpath d='M0,0 L200,200 M200,0 L0,200'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .zellige-right {
+    right: -40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%230284c7' stroke-width='1.5'%3E%3Cpolygon points='100,10 125,75 190,100 125,125 100,190 75,125 10,100 75,75'/%3E%3Cpolygon points='100,35 145,100 100,165 55,100'/%3E%3Ccircle cx='100' cy='100' r='55'/%3E%3Cpath d='M100,0 L200,100 L100,200 L0,100 Z'/%3E%3Cpath d='M0,0 L200,200 M200,0 L0,200'/%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+.print-only{display:none}
+@media print{.no-print{display:none!important}.print-only{display:block;text-align:center;font-size:10px;padding:6px 0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
